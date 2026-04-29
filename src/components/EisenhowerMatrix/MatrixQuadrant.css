@@ -1,0 +1,263 @@
+.matrix-quadrant {
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  background: var(--white);
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-base);
+}
+
+.matrix-quadrant:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+     QUADRANT HEADER
+     ============================================ */
+
+.quadrant-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 2px solid var(--gray-200);
+}
+
+.quadrant-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.quadrant-title {
+  flex: 1;
+}
+
+.quadrant-title h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--gray-900);
+}
+
+.quadrant-subtitle {
+  font-size: 0.8125rem;
+  color: var(--gray-600);
+  line-height: 1.4;
+}
+
+.quadrant-count {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+/* ============================================
+     QUADRANT TASKS CONTAINER
+     ============================================ */
+
+.quadrant-tasks {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  overflow-y: auto;
+  max-height: 600px;
+  padding-right: 4px;
+}
+
+.quadrant-tasks::-webkit-scrollbar {
+  width: 6px;
+}
+
+.quadrant-tasks::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.quadrant-tasks::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: 3px;
+}
+
+.quadrant-tasks::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-400);
+}
+
+/* ============================================
+     EMPTY STATE
+     ============================================ */
+
+.empty-quadrant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  text-align: center;
+  height: 100%;
+  min-height: 200px;
+}
+
+.empty-quadrant p {
+  color: var(--gray-500);
+  margin: 0;
+}
+
+.empty-quadrant p:first-child {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.empty-hint {
+  font-size: 0.8125rem !important;
+  font-style: italic;
+}
+
+/* ============================================
+     QUADRANT 1: URGENTE E IMPORTANTE
+     ============================================ */
+
+.quadrant-q1 {
+  border-color: var(--q1-red);
+  background: linear-gradient(to bottom, var(--white), var(--q1-red-light));
+}
+
+.quadrant-q1 .quadrant-icon {
+  background: var(--q1-red-light);
+  color: var(--q1-red-dark);
+}
+
+.quadrant-q1 .quadrant-header {
+  border-color: var(--q1-red);
+}
+
+.quadrant-q1 .quadrant-count {
+  background: var(--q1-red-light);
+  color: var(--q1-red-dark);
+}
+
+/* ============================================
+     QUADRANT 2: NO URGENTE E IMPORTANTE
+     ============================================ */
+
+.quadrant-q2 {
+  border-color: var(--q2-blue);
+  background: linear-gradient(to bottom, var(--white), var(--q2-blue-light));
+}
+
+.quadrant-q2 .quadrant-icon {
+  background: var(--q2-blue-light);
+  color: var(--q2-blue-dark);
+}
+
+.quadrant-q2 .quadrant-header {
+  border-color: var(--q2-blue);
+}
+
+.quadrant-q2 .quadrant-count {
+  background: var(--q2-blue-light);
+  color: var(--q2-blue-dark);
+}
+
+/* ============================================
+     QUADRANT 3: URGENTE Y NO IMPORTANTE
+     ============================================ */
+
+.quadrant-q3 {
+  border-color: var(--q3-yellow);
+  background: linear-gradient(to bottom, var(--white), var(--q3-yellow-light));
+}
+
+.quadrant-q3 .quadrant-icon {
+  background: var(--q3-yellow-light);
+  color: var(--q3-yellow-dark);
+}
+
+.quadrant-q3 .quadrant-header {
+  border-color: var(--q3-yellow);
+}
+
+.quadrant-q3 .quadrant-count {
+  background: var(--q3-yellow-light);
+  color: var(--q3-yellow-dark);
+}
+
+/* ============================================
+     QUADRANT 4: NO URGENTE Y NO IMPORTANTE
+     ============================================ */
+
+.quadrant-q4 {
+  border-color: var(--q4-gray);
+  background: linear-gradient(to bottom, var(--white), var(--q4-gray-light));
+}
+
+.quadrant-q4 .quadrant-icon {
+  background: var(--q4-gray-light);
+  color: var(--q4-gray-dark);
+}
+
+.quadrant-q4 .quadrant-header {
+  border-color: var(--q4-gray);
+}
+
+.quadrant-q4 .quadrant-count {
+  background: var(--q4-gray-light);
+  color: var(--q4-gray-dark);
+}
+
+/* ============================================
+     DRAG STATE
+     ============================================ */
+
+.matrix-quadrant.drag-over {
+  background: var(--gray-100);
+  border-style: dashed;
+  border-width: 3px;
+}
+
+/* ============================================
+     RESPONSIVE
+     ============================================ */
+
+@media (max-width: 768px) {
+  .matrix-quadrant {
+    padding: var(--spacing-md);
+    min-height: 250px;
+  }
+
+  .quadrant-header {
+    gap: var(--spacing-sm);
+  }
+
+  .quadrant-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 1.25rem;
+  }
+
+  .quadrant-title h3 {
+    font-size: 1rem;
+  }
+
+  .quadrant-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .quadrant-tasks {
+    max-height: 400px;
+  }
+}

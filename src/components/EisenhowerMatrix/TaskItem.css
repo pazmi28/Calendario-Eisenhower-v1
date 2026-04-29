@@ -1,0 +1,246 @@
+.task-item {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  cursor: move;
+  transition: all var(--transition-base);
+  border-left: 3px solid transparent;
+  box-shadow: var(--shadow-sm);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.task-item.completed {
+  opacity: 0.6;
+}
+
+.task-item.completed .task-title {
+  text-decoration: line-through;
+  color: var(--gray-500);
+}
+
+/* ============================================
+   TASK CONTENT
+   ============================================ */
+
+.task-content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+}
+
+/* ============================================
+   CHECKBOX
+   ============================================ */
+
+.task-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: var(--success);
+}
+
+/* ============================================
+   TASK DETAILS
+   ============================================ */
+
+.task-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-title {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--gray-900);
+  line-height: 1.4;
+  margin-bottom: 4px;
+  word-wrap: break-word;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.recurring-badge {
+  font-size: 1rem;
+  line-height: 1;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.task-item:hover .recurring-badge {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.task-description {
+  font-size: 0.8125rem;
+  color: var(--gray-600);
+  line-height: 1.4;
+  margin-bottom: 6px;
+  word-wrap: break-word;
+}
+
+.task-time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-top: 6px;
+}
+
+.time-icon {
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
+/* ============================================
+   DELETE AND EDIT BUTTONS
+   ============================================ */
+
+.task-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.task-item:hover .task-actions {
+  opacity: 1;
+}
+
+.task-edit,
+.task-delete {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--gray-400);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-edit {
+  font-size: 1rem;
+}
+
+.task-edit:hover {
+  background: var(--primary-blue-lightest);
+  color: var(--primary-blue);
+  transform: scale(1.1);
+}
+
+.task-delete {
+  font-size: 1.5rem;
+}
+
+.task-delete:hover {
+  background: var(--error-light);
+  color: var(--error);
+  transform: scale(1.1);
+}
+
+/* ============================================
+   QUADRANT-SPECIFIC COLORS
+   ============================================ */
+
+.task-item.quadrant-q1 {
+  border-left-color: var(--q1-red);
+}
+
+.task-item.quadrant-q1:hover {
+  background: var(--q1-red-light);
+}
+
+.task-item.quadrant-q2 {
+  border-left-color: var(--q2-blue);
+}
+
+.task-item.quadrant-q2:hover {
+  background: var(--q2-blue-light);
+}
+
+.task-item.quadrant-q3 {
+  border-left-color: var(--q3-yellow);
+}
+
+.task-item.quadrant-q3:hover {
+  background: var(--q3-yellow-light);
+}
+
+.task-item.quadrant-q4 {
+  border-left-color: var(--q4-gray);
+}
+
+.task-item.quadrant-q4:hover {
+  background: var(--q4-gray-light);
+}
+
+/* ============================================
+   DRAG STATE
+   ============================================ */
+
+.task-item[draggable="true"]:active {
+  opacity: 0.5;
+  cursor: grabbing;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .task-item {
+    padding: var(--spacing-sm);
+  }
+
+  .task-title {
+    font-size: 0.875rem;
+  }
+
+  .task-description {
+    font-size: 0.75rem;
+  }
+
+  .task-actions {
+    opacity: 1;
+  }
+
+  .task-checkbox {
+    width: 18px;
+    height: 18px;
+  }
+}

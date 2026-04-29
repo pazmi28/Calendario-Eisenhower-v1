@@ -1,0 +1,193 @@
+.calendar-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.calendar-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+/* ============================================
+     DATE NAVIGATION
+     ============================================ */
+
+.date-navigation {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gray-300);
+  background: var(--white);
+  color: var(--gray-700);
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn:hover {
+  background: var(--gray-100);
+  border-color: var(--gray-400);
+  transform: scale(1.05);
+}
+
+.today-btn {
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gray-300);
+  background: var(--white);
+  color: var(--gray-700);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.today-btn:hover {
+  background: var(--gray-100);
+  border-color: var(--gray-400);
+}
+
+.date-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0;
+  text-transform: capitalize;
+}
+
+/* ============================================
+     HEADER ACTIONS
+     ============================================ */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+/* ============================================
+     VIEW TOGGLE
+     ============================================ */
+
+.view-toggle {
+  display: flex;
+  background: var(--gray-100);
+  padding: 4px;
+  border-radius: var(--radius-md);
+  gap: 4px;
+}
+
+.view-btn {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  color: var(--gray-600);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.view-btn:hover {
+  color: var(--gray-900);
+}
+
+.view-btn.active {
+  background: var(--white);
+  color: var(--primary-blue);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+     ADD TASK BUTTON
+     ============================================ */
+
+.add-task-btn {
+  padding: 10px 20px;
+  background: var(--success);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-base);
+}
+
+.add-task-btn:hover {
+  background: #059669;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.add-icon {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* ============================================
+     RESPONSIVE
+     ============================================ */
+
+@media (max-width: 1024px) {
+  .calendar-header-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .date-navigation {
+    justify-content: center;
+  }
+
+  .header-actions {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 640px) {
+  .calendar-header {
+    padding: var(--spacing-md);
+  }
+
+  .date-title {
+    font-size: 1.125rem;
+  }
+
+  .view-btn {
+    padding: 6px 12px;
+    font-size: 0.8125rem;
+  }
+
+  .add-task-btn {
+    padding: 8px 16px;
+    font-size: 0.8125rem;
+  }
+
+  .add-task-btn span:last-child {
+    display: none;
+  }
+
+  .add-icon {
+    font-size: 1.5rem;
+  }
+}
